@@ -54,3 +54,23 @@ functions:
           cors: true
           authorizer:
             arn: "arn:aws:cognito-idp:us-west-2:711668821345:userpool/us-west-2_gRKodqIkn"
+
+  update:
+    handler: update.main
+    events:
+      - http:
+          path: widgets/{id}
+          method: put
+          cors: true
+          authorizer:
+            arn: "arn:aws:cognito-idp:us-west-2:711668821345:userpool/us-west-2_gRKodqIkn"
+
+  delete:
+    handler: delete.main
+    events:
+      - http:
+          path: widgets/{id}
+          method: delete
+          cors: true
+          authorizer:
+            arn: "arn:aws:cognito-idp:us-west-2:711668821345:userpool/us-west-2_gRKodqIkn"
