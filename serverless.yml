@@ -44,3 +44,13 @@ functions:
           cors: true
           authorizer:
             arn: "arn:aws:cognito-idp:us-west-2:711668821345:userpool/us-west-2_gRKodqIkn"
+
+  list:
+    handler: list.main
+    events:
+      - http:
+          path: widgets
+          method: get
+          cors: true
+          authorizer:
+            arn: "arn:aws:cognito-idp:us-west-2:711668821345:userpool/us-west-2_gRKodqIkn"
