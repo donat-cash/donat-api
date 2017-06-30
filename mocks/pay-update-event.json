@@ -1,6 +1,7 @@
 {
+  "body": "{\"name\":\"new world\"}",
   "pathParameters": {
-    "id": "f9771720-55e6-11e7-bfe4-9d0e2aaff30c"
+    "id": "85e8c980-5d97-11e7-8da7-290bf15c7d75"
   },
   "requestContext": {
     "authorizer": {

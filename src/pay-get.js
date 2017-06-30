@@ -3,10 +3,9 @@ import { success, failure } from './libs/response-lib';
 
 export async function main(event, context, callback) {
   const params = {
-    TableName: 'widgets',
+    TableName: 'donat-pays',
     Key: {
-      userId: event.requestContext.authorizer.claims.sub,
-      widgetId: event.pathParameters.id,
+      payId: event.pathParameters.id,
     },
   };
 
@@ -23,8 +22,11 @@ export async function main(event, context, callback) {
     }
   }
   catch(e) {
+    console.error(e);
+
     callback(null, failure({
       status: false
     }));
   }
 };
+

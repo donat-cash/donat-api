@@ -25,8 +25,8 @@ provider:
       Resource: "arn:aws:dynamodb:us-west-2:*:*"
 
 functions:
-  create:
-    handler: create.main
+  widget-create:
+    handler: widget-create.main
     events:
       - http:
           path: widgets
@@ -35,8 +35,8 @@ functions:
           authorizer:
             arn: "arn:aws:cognito-idp:us-west-2:711668821345:userpool/us-west-2_gRKodqIkn"
 
-  get:
-    handler: get.main
+  widget-get:
+    handler: widget-get.main
     events:
       - http:
           path: widgets/{id}
@@ -45,8 +45,8 @@ functions:
           authorizer:
             arn: "arn:aws:cognito-idp:us-west-2:711668821345:userpool/us-west-2_gRKodqIkn"
 
-  list:
-    handler: list.main
+  widget-list:
+    handler: widget-list.main
     events:
       - http:
           path: widgets
@@ -55,8 +55,8 @@ functions:
           authorizer:
             arn: "arn:aws:cognito-idp:us-west-2:711668821345:userpool/us-west-2_gRKodqIkn"
 
-  update:
-    handler: update.main
+  widget-update:
+    handler: widget-update.main
     events:
       - http:
           path: widgets/{id}
@@ -65,8 +65,8 @@ functions:
           authorizer:
             arn: "arn:aws:cognito-idp:us-west-2:711668821345:userpool/us-west-2_gRKodqIkn"
 
-  delete:
-    handler: delete.main
+  widget-delete:
+    handler: widget-delete.main
     events:
       - http:
           path: widgets/{id}
@@ -74,3 +74,54 @@ functions:
           cors: true
           authorizer:
             arn: "arn:aws:cognito-idp:us-west-2:711668821345:userpool/us-west-2_gRKodqIkn"
+
+  pay-create:
+    handler: pay-create.main
+    events:
+      - http:
+          path: pays
+          method: post
+          cors: true
+          authorizer:
+            arn: "arn:aws:cognito-idp:us-west-2:711668821345:userpool/us-west-2_gRKodqIkn"
+
+  pay-get:
+    handler: pay-get.main
+    events:
+      - http:
+          path: pays/{id}
+          method: get
+          cors: true
+          authorizer:
+            arn: "arn:aws:cognito-idp:us-west-2:711668821345:userpool/us-west-2_gRKodqIkn"
+
+  pay-list:
+    handler: pay-list.main
+    events:
+      - http:
+          path: pays
+          method: get
+          cors: true
+          authorizer:
+            arn: "arn:aws:cognito-idp:us-west-2:711668821345:userpool/us-west-2_gRKodqIkn"
+
+  pay-update:
+    handler: pay-update.main
+    events:
+      - http:
+          path: pays/{id}
+          method: put
+          cors: true
+          authorizer:
+            arn: "arn:aws:cognito-idp:us-west-2:711668821345:userpool/us-west-2_gRKodqIkn"
+
+  pay-delete:
+    handler: pay-delete.main
+    events:
+      - http:
+          path: pays/{id}
+          method: delete
+          cors: true
+          authorizer:
+            arn: "arn:aws:cognito-idp:us-west-2:711668821345:userpool/us-west-2_gRKodqIkn"
+

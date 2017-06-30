@@ -4,15 +4,13 @@ import { success, failure } from './libs/response-lib';
 export async function main(event, context, callback) {
   const data = JSON.parse(event.body);
   const params = {
-    TableName: 'widgets',
+    TableName: 'donat-widgets',
     Key: {
-      userId: event.requestContext.authorizer.claims.sub,
       widgetId: event.pathParameters.id,
     },
-    UpdateExpression: 'SET content = :content, attachment = :attachment',
+    UpdateExpression: 'SET name = :name',
     ExpressionAttributeValues: {
-      ':attachment': data.attachment ? data.attachment : null,
-      ':content': data.content ? data.content : null,
+      ':name': data.name ? data.name : null,
     },
     ReturnValues: 'ALL_NEW',
   };
@@ -25,8 +23,11 @@ export async function main(event, context, callback) {
     }));
   }
   catch(e) {
+    console.error(e);
+
     callback(null, failure({
       status: false
     }));
   }
 };
+

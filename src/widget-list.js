@@ -3,7 +3,7 @@ import { success, failure } from './libs/response-lib';
 
 export async function main(event, context, callback) {
   const params = {
-    TableName: 'widgets',
+    TableName: 'donat-widgets',
     KeyConditionExpression: "userId = :userId",
     ExpressionAttributeValues: {
       ":userId": event.requestContext.authorizer.claims.sub,
@@ -16,8 +16,11 @@ export async function main(event, context, callback) {
     callback(null, success(result.Items));
   }
   catch(e) {
+    console.log(e);
+
     callback(null, failure({
       status: false
     }));
   }
 };
+
