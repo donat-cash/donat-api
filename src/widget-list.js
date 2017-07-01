@@ -4,14 +4,14 @@ import { success, failure } from './libs/response-lib';
 export async function main(event, context, callback) {
   const params = {
     TableName: 'donat-widgets',
-    KeyConditionExpression: "userId = :userId",
+    FilterExpression: "userId = :userId",
     ExpressionAttributeValues: {
       ":userId": event.requestContext.authorizer.claims.sub,
     }
   };
 
   try {
-    const result = await dynamoDbLib.call('query', params);
+    const result = await dynamoDbLib.call('scan', params);
 
     callback(null, success(result.Items));
   }

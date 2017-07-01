@@ -1,13 +1,5 @@
 {
   "pathParameters": {
-    "userId": "0822ed3a-0790-4339-b7bd-8f1b945ad22d",
-    "id": "4dbffec0-5847-11e7-8e76-558a3b136562"
-  },
-  "requestContext": {
-    "authorizer": {
-      "claims": {
-        "sub": "0822ed3a-0790-4339-b7bd-8f1b945ad22d"
-      }
-    }
+    "id": "836d24b0-5da3-11e7-b077-a36d478b61bf"
   }
 }

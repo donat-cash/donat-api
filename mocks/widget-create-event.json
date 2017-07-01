@@ -1,5 +1,5 @@
 {
-  "body": "{\"content\":\"hello world\",\"attachment\":\"hello.jpg\"}",
+  "body": "{\"name\":\"hello world\"}",
   "requestContext": {
     "authorizer": {
       "claims": {
