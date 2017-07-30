@@ -3,18 +3,17 @@ import { success, failure } from './libs/response-lib';
 
 export async function main(event, context, callback) {
   const params = {
-    TableName: 'donat-pays',
-    Key: {
-      payId: event.pathParameters.id,
-    },
+    TableName: 'donat-pages',
+    FilterExpression: "userId = :userId",
+    ExpressionAttributeValues: {
+      ":userId": event.requestContext.authorizer.claims.sub,
+    }
   };
 
   try {
-    const result = await dynamoDbLib.call('delete', params);
+    const result = await dynamoDbLib.call('scan', params);
 
-    callback(null, success({
-      status: true
-    }));
+    callback(null, success(result.Items));
   }
   catch(e) {
     console.log(e);

@@ -73,52 +73,72 @@ functions:
           authorizer:
             arn: "arn:aws:cognito-idp:us-west-2:711668821345:userpool/us-west-2_gRKodqIkn"
 
-  pay-create:
-    handler: pay-create.main
+  page-create:
+    handler: page-create.main
     events:
       - http:
-          path: pays
+          path: pages
           method: post
           cors: true
           authorizer:
             arn: "arn:aws:cognito-idp:us-west-2:711668821345:userpool/us-west-2_gRKodqIkn"
 
-  pay-get:
-    handler: pay-get.main
+  page-get:
+    handler: page-get.main
     events:
       - http:
-          path: pays/{id}
+          path: pages/{id}
           method: get
           cors: true
           authorizer:
             arn: "arn:aws:cognito-idp:us-west-2:711668821345:userpool/us-west-2_gRKodqIkn"
 
-  pay-list:
-    handler: pay-list.main
+  page-list:
+    handler: page-list.main
     events:
       - http:
-          path: pays
+          path: pages
           method: get
           cors: true
           authorizer:
             arn: "arn:aws:cognito-idp:us-west-2:711668821345:userpool/us-west-2_gRKodqIkn"
 
-  pay-update:
-    handler: pay-update.main
+  page-update:
+    handler: page-update.main
     events:
       - http:
-          path: pays/{id}
+          path: pages/{id}
           method: put
           cors: true
           authorizer:
             arn: "arn:aws:cognito-idp:us-west-2:711668821345:userpool/us-west-2_gRKodqIkn"
 
-  pay-delete:
-    handler: pay-delete.main
+  page-delete:
+    handler: page-delete.main
     events:
       - http:
-          path: pays/{id}
+          path: pages/{id}
           method: delete
+          cors: true
+          authorizer:
+            arn: "arn:aws:cognito-idp:us-west-2:711668821345:userpool/us-west-2_gRKodqIkn"
+
+  auth:
+    handler: auth.main
+    events:
+      - http:
+          path: auth
+          method: get
+          cors: true
+          authorizer:
+            arn: "arn:aws:cognito-idp:us-west-2:711668821345:userpool/us-west-2_gRKodqIkn"
+
+  auth-callback:
+    handler: auth-callback.main
+    events:
+      - http:
+          path: auth/callback
+          method: get
           cors: true
           authorizer:
             arn: "arn:aws:cognito-idp:us-west-2:711668821345:userpool/us-west-2_gRKodqIkn"

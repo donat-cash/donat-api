@@ -23,7 +23,8 @@
   },
   "dependencies": {
     "babel-runtime": "^6.23.0",
-    "uuid": "^3.1.0"
+    "uuid": "^3.1.0",
+    "yandex-money-sdk": "^0.1.6"
   },
   "babel": {
     "plugins": [

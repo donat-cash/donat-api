@@ -5,7 +5,7 @@ import { success, failure } from './libs/response-lib';
 export async function main(event, context, callback) {
   const data = JSON.parse(event.body);
   const params = {
-    TableName: 'donat-pays',
+    TableName: 'donat-pages',
     Item: {
       payId: uuid.v1(),
       userId: event.requestContext.authorizer.claims.sub,
