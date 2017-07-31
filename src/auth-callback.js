@@ -24,9 +24,26 @@ export function main(event, context, callback) {
       return;
     }
 
-    callback(null, success({
-      accessToken: response.access_token,
-    }));
+    const params = {
+      TableName: 'donat-users',
+      Item: {
+        userId: uuid.v1(),
+        accessToken: response.access_token,
+        createdAt: new Date().getTime(),
+      },
+    };
+
+    try {
+      await dynamoDbLib.call('put', params);
+
+      callback(null, success(params.Item));
+    }
+    catch(e) {
+      callback(null, failure({
+        status: false,
+        message: e,
+      }));
+    }
   });
 };
 
