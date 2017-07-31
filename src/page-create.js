@@ -7,7 +7,7 @@ export async function main(event, context, callback) {
   const params = {
     TableName: 'donat-pages',
     Item: {
-      payId: uuid.v1(),
+      pageId: uuid.v1(),
       userId: event.requestContext.authorizer.claims.sub,
       name: data.name,
       createdAt: new Date().getTime(),

@@ -5,7 +5,7 @@ export async function main(event, context, callback) {
   const params = {
     TableName: 'donat-pages',
     Key: {
-      payId: event.pathParameters.id,
+      pageId: event.pathParameters.id,
     },
   };
 

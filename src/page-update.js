@@ -6,7 +6,7 @@ export async function main(event, context, callback) {
   const params = {
     TableName: 'donat-pages',
     Key: {
-      widgetId: event.pathParameters.id,
+      pageId: event.pathParameters.id,
     },
     UpdateExpression: 'SET name = :name',
     ExpressionAttributeValues: {
