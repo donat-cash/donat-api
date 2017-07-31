@@ -1,5 +1,5 @@
 import yandexMoney from 'yandex-money-sdk';
-import { failure } from './libs/response-lib';
+import { success, failure } from './libs/response-lib';
 import config from '../config';
 
 export function main(event, context, callback) {
@@ -12,14 +12,11 @@ export function main(event, context, callback) {
     return;
   }
 
-  callback(null, {
-    statusCode: 302,
-    headers: {
-      Location: yandexMoney.Wallet.buildObtainTokenUrl(config.clientId, config.redirectURI, [
-        'account-info',
-        'operation-history',
-      ]),
-    },
-  });
+  callback(null, success({
+    url: yandexMoney.Wallet.buildObtainTokenUrl(config.clientId, config.redirectURI, [
+      'account-info',
+      'operation-history',
+    ]),
+  }));
 };
 
