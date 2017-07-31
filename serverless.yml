@@ -130,8 +130,6 @@ functions:
           path: auth
           method: get
           cors: true
-          authorizer:
-            arn: "arn:aws:cognito-idp:us-west-2:711668821345:userpool/us-west-2_gRKodqIkn"
 
   auth-callback:
     handler: auth-callback.main
@@ -140,6 +138,4 @@ functions:
           path: auth/callback
           method: get
           cors: true
-          authorizer:
-            arn: "arn:aws:cognito-idp:us-west-2:711668821345:userpool/us-west-2_gRKodqIkn"
 
