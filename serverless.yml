@@ -32,8 +32,6 @@ functions:
           path: widgets
           method: post
           cors: true
-          authorizer:
-            arn: "arn:aws:cognito-idp:us-west-2:711668821345:userpool/us-west-2_gRKodqIkn"
 
   widget-get:
     handler: widget-get.main
@@ -50,8 +48,6 @@ functions:
           path: widgets
           method: get
           cors: true
-          authorizer:
-            arn: "arn:aws:cognito-idp:us-west-2:711668821345:userpool/us-west-2_gRKodqIkn"
 
   widget-update:
     handler: widget-update.main
@@ -60,8 +56,6 @@ functions:
           path: widgets/{id}
           method: put
           cors: true
-          authorizer:
-            arn: "arn:aws:cognito-idp:us-west-2:711668821345:userpool/us-west-2_gRKodqIkn"
 
   widget-delete:
     handler: widget-delete.main
@@ -70,72 +64,28 @@ functions:
           path: widgets/{id}
           method: delete
           cors: true
-          authorizer:
-            arn: "arn:aws:cognito-idp:us-west-2:711668821345:userpool/us-west-2_gRKodqIkn"
 
-  page-create:
-    handler: page-create.main
+  user-create:
+    handler: user-create.main
     events:
       - http:
-          path: pages
+          path: users
           method: post
           cors: true
-          authorizer:
-            arn: "arn:aws:cognito-idp:us-west-2:711668821345:userpool/us-west-2_gRKodqIkn"
 
-  page-get:
-    handler: page-get.main
+  user-get:
+    handler: user-get.main
     events:
       - http:
-          path: pages/{id}
+          path: users/{id}
           method: get
           cors: true
-          authorizer:
-            arn: "arn:aws:cognito-idp:us-west-2:711668821345:userpool/us-west-2_gRKodqIkn"
 
-  page-list:
-    handler: page-list.main
+  user-update:
+    handler: user-update.main
     events:
       - http:
-          path: pages
-          method: get
-          cors: true
-          authorizer:
-            arn: "arn:aws:cognito-idp:us-west-2:711668821345:userpool/us-west-2_gRKodqIkn"
-
-  page-update:
-    handler: page-update.main
-    events:
-      - http:
-          path: pages/{id}
+          path: users/{id}
           method: put
-          cors: true
-          authorizer:
-            arn: "arn:aws:cognito-idp:us-west-2:711668821345:userpool/us-west-2_gRKodqIkn"
-
-  page-delete:
-    handler: page-delete.main
-    events:
-      - http:
-          path: pages/{id}
-          method: delete
-          cors: true
-          authorizer:
-            arn: "arn:aws:cognito-idp:us-west-2:711668821345:userpool/us-west-2_gRKodqIkn"
-
-  auth:
-    handler: auth.main
-    events:
-      - http:
-          path: auth
-          method: get
-          cors: true
-
-  auth-callback:
-    handler: auth-callback.main
-    events:
-      - http:
-          path: auth/callback
-          method: get
           cors: true
 

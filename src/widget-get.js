@@ -18,15 +18,14 @@ export async function main(event, context, callback) {
     else {
       callback(null, failure({
         status: false,
-        error: 'Item not found.'
+        message: 'Item not found.',
       }));
     }
   }
   catch(e) {
-    console.error(e);
-
     callback(null, failure({
-      status: false
+      status: false,
+      message: e,
     }));
   }
 };

@@ -1,26 +1,40 @@
+import { Wallet } from 'yandex-money-sdk';
 import * as dynamoDbLib from './libs/dynamodb-lib';
 import { success, failure } from './libs/response-lib';
 
 export async function main(event, context, callback) {
-  const params = {
-    TableName: 'donat-widgets',
-    FilterExpression: "userId = :userId",
-    ExpressionAttributeValues: {
-      ":userId": event.requestContext.authorizer.claims.sub,
+  const data = JSON.parse(event.body);
+  const api = new Wallet(data.accessToken);
+
+  api.accountInfo((err, { account }) => {
+    if (err !== null) {
+      callback(null, failure({
+        status: false,
+        message: err,
+      }));
+
+      return;
     }
-  };
 
-  try {
-    const result = await dynamoDbLib.call('scan', params);
+    const params = {
+      TableName: 'donat-widgets',
+      FilterExpression: "userId = :userId",
+      ExpressionAttributeValues: {
+        ":userId": account,
+      },
+    };
 
-    callback(null, success(result.Items));
-  }
-  catch(e) {
-    console.log(e);
+    try {
+      const result = await dynamoDbLib.call('scan', params);
 
-    callback(null, failure({
-      status: false
-    }));
-  }
+      callback(null, success(result.Items));
+    }
+    catch(e) {
+      callback(null, failure({
+        status: false,
+        message: e,
+      }));
+    }
+  });
 };
 
