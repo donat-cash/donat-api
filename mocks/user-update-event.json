@@ -1,0 +1,13 @@
+{
+  "body": "{\"name\":\"new world\"}",
+  "pathParameters": {
+    "id": "85e8c980-5d97-11e7-8da7-290bf15c7d75"
+  },
+  "requestContext": {
+    "authorizer": {
+      "claims": {
+        "sub": "USER-SUB-1234"
+      }
+    }
+  }
+}
