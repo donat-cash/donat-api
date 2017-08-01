@@ -7,7 +7,7 @@ export async function main(event, context, callback) {
   const data = JSON.parse(event.body);
   const api = new Wallet(data.accessToken);
 
-  api.accountInfo((err, { account }) => {
+  api.accountInfo(async (err, { account }) => {
     if (err !== null) {
       callback(null, failure({
         status: false,

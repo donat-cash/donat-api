@@ -28,7 +28,7 @@ export function main(event, context, callback) {
 
     const api = new Wallet(response.access_token);
 
-    api.accountInfo((err, { account }) => {
+    api.accountInfo(async (err, { account }) => {
       if (err !== null) {
         callback(null, failure({
           status: false,

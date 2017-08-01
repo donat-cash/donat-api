@@ -6,7 +6,7 @@ export async function main(event, context, callback) {
   const data = JSON.parse(event.body);
   const api = new Wallet(data.accessToken);
 
-  api.accountInfo((err) => {
+  api.accountInfo(async (err) => {
     if (err !== null) {
       callback(null, failure({
         status: false,
@@ -21,9 +21,10 @@ export async function main(event, context, callback) {
       Key: {
         widgetId: event.pathParameters.id,
       },
-      UpdateExpression: 'SET name = :name',
+      UpdateExpression: 'SET name = :name, sum = :sum',
       ExpressionAttributeValues: {
         ':name': data.name ? data.name : null,
+        ':sum': data.sum ? data.sum : null,
       },
       ReturnValues: 'ALL_NEW',
     };
